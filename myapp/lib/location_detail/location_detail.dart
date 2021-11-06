@@ -1,4 +1,6 @@
+// screens/home/home.dart
 import 'package:flutter/material.dart';
+import 'package:myapp/location_detail/text_section.dart';
 
 class LocationDetail extends StatelessWidget {
   const LocationDetail({Key? key}) : super(key: key);
@@ -13,6 +15,7 @@ class LocationDetail extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          TextSection(),
           Container(
             decoration: BoxDecoration(
               color: Colors.red,
