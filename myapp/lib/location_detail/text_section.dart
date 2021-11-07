@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
 class TextSection extends StatelessWidget {
-  final Color _color;
+  late final Color _color;
   TextSection(this._color);
+
+  // TextSection(Color color) {
+  //   this._color = color;
+  // }
 
   @override
   Widget build(BuildContext context) {
