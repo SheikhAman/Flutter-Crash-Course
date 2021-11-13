@@ -2,29 +2,35 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/location_detail/text_section.dart';
 import 'image_banner.dart';
+import '../models/location.dart';
 
 class LocationDetail extends StatelessWidget {
   const LocationDetail({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final locations = Location.fetchAll();
+    final location = locations.first; //location.first  means locations[0]
     return Scaffold(
       appBar: AppBar(
-        title: Text('Location Detail'),
+        title: Text(location.name),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          ImageBanner("assets/images/kiyomizu-dera.jpg"),
-          TextSection("summery1",
-              "akldfl flakfjaf afjfjlal afjlaflaj afjlajffla afjlajf afjlajf afjlafj aafjalfla aafjalfla"),
-          TextSection("summery2",
-              "akldfl flakfjaf afjfjlal afjlaflaj afjlajffla afjlajf afjlajf afjlafj aafjalfla aafjalfla"),
-          TextSection("summery3",
-              "akldfl flakfjaf afjfjlal afjlaflaj afjlajffla afjlajf afjlajf afjlafj aafjalfla aafjalfla"),
-        ],
+          ImageBanner(location.imagePath),
+          // add All is a function it  depends all object have something that's iterable to the end of the list
+        ]..addAll(textSections(
+            location)), // cascade operator  is two .. it takes a given item and it lets you runa function against it or make an assignment
       ),
     );
+  }
+
+  List<Widget> textSections(Location location) {
+    //function
+    return location.facts
+        .map((fact) => TextSection(fact.title, fact.text))
+        .toList(); // used map to change  a list of someting to another list of something
   }
 }

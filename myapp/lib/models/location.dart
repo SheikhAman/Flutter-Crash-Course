@@ -7,9 +7,10 @@ class Location {
   Location(this.name, this.imagePath, this.facts);
 
   static List<Location> fetchAll() {
+    // generics means list of something here Location is generics means list of Location
     //fetchAll function created
     return [
-      Location('Arashiyama Bamboo Grove', 'assets/images/kiyomizu-dera.jpg', [
+      Location('Arashiyama Bamboo Grove', 'images/kiyomizu-dera.jpg', [
         LocationFact('Summary',
             'While we could go on about the ethereal glow and seemingly endless heights of this bamboo grove on the outskirts of Kyoto, the sight\'s pleasures extend beyond the visual realm.'),
         LocationFact('How to Get There',
