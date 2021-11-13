@@ -30,7 +30,8 @@ class LocationDetail extends StatelessWidget {
   List<Widget> textSections(Location location) {
     //function
     return location.facts
-        .map((fact) => TextSection(fact.title, fact.text))
+        .map((fact) =>
+            TextSection(fact.title, fact.text)) // fact_variable.object_name
         .toList(); // used map to change  a list of someting to another list of something
   }
 }
